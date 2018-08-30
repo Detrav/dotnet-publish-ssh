@@ -4,7 +4,9 @@
     <Description>Publish .Net Core app to remote server via SSH</Description>
     <AssemblyTitle>dotnet-publish-ssh</AssemblyTitle>
     <VersionPrefix>0.1.0</VersionPrefix>
-    <TargetFrameworks>net461;netcoreapp1.0;netcoreapp1.1;netcoreapp2.0</TargetFrameworks>
+    <TargetFrameworks>netcoreapp2.1</TargetFrameworks>
+    <ToolCommandName>dotnet-publish-ssh</ToolCommandName>
+    <PackAsTool>True</PackAsTool>
     <AssemblyName>dotnet-publish-ssh</AssemblyName>
     <OutputType>Exe</OutputType>
     <PackageId>DotnetPublishSsh</PackageId>
