@@ -18,7 +18,7 @@ namespace DotnetPublishSsh
             _connectionInfo = CreateConnectionInfo(publishSshOptions);
         }
 
-        private static ConnectionInfo CreateConnectionInfo(PublishSshOptions options)
+        internal static ConnectionInfo CreateConnectionInfo(PublishSshOptions options)
         {
             var authenticationMethods = new List<AuthenticationMethod>();
 
