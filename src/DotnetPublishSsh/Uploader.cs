@@ -82,7 +82,7 @@ namespace DotnetPublishSsh
         {
             var h1 = hashes.FirstOrDefault(p => p.Path == relativeName);
             var h2 = existHashes.FirstOrDefault(p => p.Path == relativeName);
-            return h1 != null && h2 != null && h1.Lenght == h2.Lenght && h1.Path == h2.Path;
+            return h1 != null && h2 != null && h1.Lenght == h2.Lenght && h1.Path == h2.Path && h1.CreatedAt == h2.CreatedAt;
         }
 
         private List<FileHash> DownloadHashes(SftpClient ftp, string path)
@@ -130,7 +130,7 @@ namespace DotnetPublishSsh
                     fileHash.Lenght = stream.Length;
                     var hash = sha1.ComputeHash(stream);
                     var sb = new StringBuilder(hash.Length * 2);
-
+                    fileHash.CreatedAt = File.GetCreationTimeUtc(localFile.FileName);
                     foreach (byte b in hash)
                     {
                         // can be "x2" if you want lowercase
