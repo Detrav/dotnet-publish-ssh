@@ -38,3 +38,7 @@ SSH specific options:
 - [ ] Don't upload unmodified files (checksum)
 - [ ] Config file
 - [ ] Pre/post publish hooks on remote server
+
+# After fork changelog
+
+[2018/08/30] added --ssh-script option for calling script after publishing
