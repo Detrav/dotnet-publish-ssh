@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Renci.SshNet;
 
 namespace DotnetPublishSsh
@@ -8,23 +9,33 @@ namespace DotnetPublishSsh
         public char DirectorySeparator { get; set; } = '/';
 
         private readonly ConnectionInfo connectionInfo;
-        private readonly string scriptFile;
-        private readonly string directory;
+        private readonly string cmdBefore;
+        private readonly string cmdAfter;
 
         public Runner(PublishSshOptions publishSshOptions)
         {
             connectionInfo = Uploader.CreateConnectionInfo(publishSshOptions);
-            scriptFile = publishSshOptions.ScriptFile;
-            directory = publishSshOptions.Path;
+            cmdBefore = publishSshOptions.CmdBefore;
+            cmdAfter = publishSshOptions.CmdAfter;
         }
 
-        internal void Run()
+        internal void RunBefore()
         {
             using (Renci.SshNet.SshClient client = new SshClient(connectionInfo))
             {
                 client.Connect();
-                client.RunCommand("cd \"" + directory.Replace("\"", "\\\"") + "\"");
-                client.RunCommand(scriptFile);
+                SshCommand cmd = client.RunCommand(cmdBefore);
+                Console.WriteLine(cmd.Result);
+            }
+        }
+
+        internal void RunAfter()
+        {
+            using (Renci.SshNet.SshClient client = new SshClient(connectionInfo))
+            {
+                client.Connect();
+                SshCommand cmd = client.RunCommand(cmdAfter);
+                Console.WriteLine(cmd.Result);
             }
         }
     }

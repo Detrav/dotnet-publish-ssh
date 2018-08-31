@@ -14,7 +14,8 @@ namespace DotnetPublishSsh
         public string LocalPath { get; set; }
         public string[] Args { get; set; }
         public bool PrintHelp { get; set; }
-        public string ScriptFile { get; set; }
+        public string CmdBefore { get; set; }
+        public string CmdAfter { get; set; }
 
         public static PublishSshOptions ParseArgs(string[] args)
         {
@@ -44,8 +45,11 @@ namespace DotnetPublishSsh
                     case "--ssh-path":
                         options.Path = GetValue(ref args, ref idx);
                         break;
-                    case "--ssh-script":
-                        options.ScriptFile = GetValue(ref args, ref idx);
+                    case "--ssh-cmd-before":
+                        options.CmdBefore = GetValue(ref args, ref idx);
+                        break;
+                    case "--ssh-cmd-after":
+                        options.CmdAfter = GetValue(ref args, ref idx);
                         break;
                     case "-o":
                         options.LocalPath = GetValue(ref args, ref idx);

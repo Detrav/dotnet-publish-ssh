@@ -38,19 +38,11 @@ namespace DotnetPublishSsh
 
             try
             {
-                var uploader = new Uploader(options);
-
-                uploader.UploadFiles(path, localFiles);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error uploading files to server: {ex.Message}");
-            }
-
-            try
-            {
                 var runner = new Runner(options);
-                runner.Run();
+                runner.RunBefore();
+                var uploader = new Uploader(options);
+                uploader.UploadFiles(path, localFiles);
+                runner.RunAfter();
             }
             catch (Exception ex)
             {
@@ -115,7 +107,8 @@ namespace DotnetPublishSsh
             Console.WriteLine("  --ssh-password            Password");
             Console.WriteLine("  --ssh-keyfile             Private OpenSSH key file");
             Console.WriteLine("  --ssh-path *              Publish path on remote server");
-            Console.WriteLine("  --ssh-script *            Run script file after publish");
+            Console.WriteLine("  --ssh-cmd-before *        Run command before publish");
+            Console.WriteLine("  --ssh-cmd-after *         Run command file after publish");
             Console.WriteLine();
         }
     }
