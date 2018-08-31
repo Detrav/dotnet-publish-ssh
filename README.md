@@ -41,5 +41,6 @@ SSH specific options:
 
 # After fork changelog
 
-[2018/08/30] added --ssh-script option for calling script after publishing
-[2018/08/31] replca --ssh-script command to --ssh-cmd-before and --ssh-cmd-after for run command before and after publishing on remote machine via ssh
+```
+[2018/08/30][0.1.1] added --ssh-script option for calling script after publishing
+[2018/08/31][0.1.2] replca --ssh-script command to --ssh-cmd-before and --ssh-cmd-after for run command before and after publishing on remote machine via ssh
