@@ -81,7 +81,7 @@ namespace DotnetPublishSsh
         private bool EqualsHashes(string relativeName, List<FileHash> hashes, List<FileHash> existHashes)
         {
             var h1 = hashes.FirstOrDefault(p => p.Path == relativeName);
-            var h2 = hashes.FirstOrDefault(p => p.Path == relativeName);
+            var h2 = existHashes.FirstOrDefault(p => p.Path == relativeName);
             return h1 != null && h2 != null && h1.Lenght == h2.Lenght && h1.Path == h2.Path;
         }
 
@@ -110,7 +110,7 @@ namespace DotnetPublishSsh
             {
                 using (XmlWriter writer = XmlWriter.Create(ms))
                 {
-                    ser.Serialize(writer, hashes);
+                    ser.Serialize(writer, hashes.ToArray());
                 }
 
                 ms.Position = 0;
