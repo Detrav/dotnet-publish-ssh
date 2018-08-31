@@ -130,7 +130,7 @@ namespace DotnetPublishSsh
                     fileHash.Lenght = stream.Length;
                     var hash = sha1.ComputeHash(stream);
                     var sb = new StringBuilder(hash.Length * 2);
-                    fileHash.CreatedAt = File.GetCreationTimeUtc(localFile.FileName);
+                    fileHash.CreatedAt = File.GetLastWriteTimeUtc(localFile.FileName);
                     foreach (byte b in hash)
                     {
                         // can be "x2" if you want lowercase

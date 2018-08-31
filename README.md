@@ -49,3 +49,4 @@ SSH specific options:
 [2018/08/31][0.1.5] hotfix
 [2018/08/31][0.1.6] hotfix2
 [2018/08/31][0.1.7] added cheching for created time while uploading
+[2018/08/31][0.1.8] hotfix
