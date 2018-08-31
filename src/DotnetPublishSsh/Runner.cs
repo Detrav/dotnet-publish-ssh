@@ -21,6 +21,7 @@ namespace DotnetPublishSsh
 
         internal void RunBefore()
         {
+            Console.WriteLine("Try to call before command: " + cmdBefore);
             using (Renci.SshNet.SshClient client = new SshClient(connectionInfo))
             {
                 client.Connect();
@@ -31,6 +32,7 @@ namespace DotnetPublishSsh
 
         internal void RunAfter()
         {
+            Console.WriteLine("Try to call after command: " + cmdAfter);
             using (Renci.SshNet.SshClient client = new SshClient(connectionInfo))
             {
                 client.Connect();
