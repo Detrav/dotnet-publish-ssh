@@ -35,6 +35,7 @@ namespace DotnetPublishSsh
 
             Console.WriteLine();
             Console.WriteLine($"Uploading {localFiles.Count} files to {options.User}@{options.User}:{options.Port}{options.Path}");
+            
 
             try
             {

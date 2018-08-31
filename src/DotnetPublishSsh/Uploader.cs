@@ -89,7 +89,7 @@ namespace DotnetPublishSsh
         {
             List<FileHash> result = new List<FileHash>();
             var fullPath = path + ".hashes";
-            if (ftp.Exists(path))
+            if (ftp.Exists(fullPath))
             {
                 using (MemoryStream ms = new MemoryStream())
                 {

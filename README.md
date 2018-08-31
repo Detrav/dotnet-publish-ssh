@@ -46,3 +46,4 @@ SSH specific options:
 [2018/08/31][0.1.2] replace --ssh-script command to --ssh-cmd-before and --ssh-cmd-after for run command before and after publishing on remote machine via ssh
 [2018/08/31][0.1.3] added console message on command calling
 [2018/08/31][0.1.4] added checking for sha1 while uploading
+[2018/08/31][0.1.5] hotfix
